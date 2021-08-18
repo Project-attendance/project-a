@@ -4,6 +4,7 @@ const app = express();
 const mangoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
+const port = process.env.PORT || 4000;
 var bodyParser = require("body-parser");
 const ejs = require("ejs");
 const notifier = require("node-notifier");
@@ -44,4 +45,4 @@ app.use(cors(corsOpt));
 app.use("/", authRoute);
 app.use("/api/posts", postRoute);
 
-app.listen(5000, () => console.log("server started....."));
+app.listen(port, () => console.log("server started....."));
