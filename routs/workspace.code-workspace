@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"name": "Templets",
+			"path": "..\\..\\lucky-good-boy\\Templets"
+		},
+		{
+			"name": "project-api",
+			"path": ".."
+		}
+	],
+	"settings": {}
+}

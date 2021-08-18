@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.7.1/dist/js/uikit-icons.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: white;
+        }
+
+
+
+        .res-tab {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center
+        }
+
+        .box {
+            width: 90%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 15px;
+            font-style: normal;
+            text-align: center;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-style: normal;
+            text-align: center;
+        }
+
+        th {
+            color: white;
+        }
+
+        th,
+        td {
+            border: 2px solid #ddd;
+            padding: 15px;
+        }
+
+        .del {
+            /* Green */
+            background-color: rgba(218, 65, 65, 0.137);
+            border: none;
+            color: rgb(17, 17, 17);
+            justify-content: center;
+            align-items: center;
+            padding: 6px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 13px;
+        }
+
+
+        .h {
+            background-color: rgb(55, 142, 255);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="margin:2%">
+        <button type="button" class="uk-button uk-button-secondary"> <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                height="16" fill="currentColor" class="bi bi-file-earmark-plus" viewBox="0 0 16 16">
+                <path
+                    d="M8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5z" />
+                <path
+                    d="M14 4.5V14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h5.5L14 4.5zm-3 0A1.5 1.5 0 0 1 9.5 3V1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V4.5h-2z" />
+            </svg> <a href="/create-table"> Insert Table</a></button>
+    </div>
+    <b class="livetime"></b>
+    <% for(var j=0; j<data.length;j++) {%>
+
+        <div class="res-tab">
+
+            <div class="box">
+                <br>
+                <div uk-grid>>
+                    <div>
+
+                        <h4><strong>Academic Time Table (<%=data[j].branch %>) </strong>
+                        </h4>
+                    </div>
+                    <div>
+
+                        <form action="/del-table" method="post">
+                            <input type="hidden" value="<%=data[j]._id %>" name="id"> <button type="submit" class="del"
+                                type="submit">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-trash" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                    <path fill-rule="evenodd"
+                                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+                                </svg>
+                                <b> Delete</b>
+                            </button>
+                        </form>
+
+                    </div>
+
+
+
+                </div>
+                <br>
+                <div class="uk-overflow-auto">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th class="h">Period</b></th>
+                                <th class="h">Time</b></th>
+                                <th class="h">Monday</b></th>
+                                <th class="h">Tuesday</b></th>
+                                <th class="h">Wednesday</b></th>
+                                <th class="h">Thursday</b></th>
+                                <th class="h">Friday</b></th>
+                                <th class="h">Saturday</b></th>
+                            </tr>
+                            <% for (var i=0; i <data[j].starttime.length; i++ ) { %>
+                                <% if(data[j].starttime[i]!=null && data[j].starttime[i]!='' ){%>
+                                    <tr>
+                                        <td><b>
+                                                <%= i+1 %>
+                                            </b></td>
+                                        <td>
+                                            <%=data[j].starttime[i]%>-<br>
+                                                <%=data[j].endtime[i]%> %>
+                                        </td>
+                                        <td>
+                                            <%=data[j]. Monday[i] %>
+                                        </td>
+
+                                        <td>
+                                            <%=data[j]. Tuesday[i] %>
+                                        </td>
+                                        <td>
+                                            <%=data[j]. Wednesday[i] %>
+                                        </td>
+                                        <td>
+                                            <%=data[j]. Thursday[i] %>
+                                        </td>
+                                        <td>
+                                            <%=data[j]. Friday[i] %>
+                                        </td>
+                                        <td>
+                                            <%=data[j]. Saturday[i] %>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                        <% } %>
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <br><br>
+                <!-- links and discription -->
+                <div class="uk-container">
+                    <h4> <strong>Lecture description</strong></h4>
+                    <ul>
+                        <li> <strong>Name: </strong>
+                            <%=data[j].name%>
+                        </li>
+                        <li> <strong>Branch: </strong>
+                            <%=data[j].branch%>
+                        </li>
+                    </ul>
+                    <hr>
+                    <div class="uk-overflow-auto">
+                        <table class="uk-table uk-table-middle uk-table-divider">
+                            <thead>
+                                <tr>
+                                    <th class="uk-width-small">lecturer</th>
+                                    <th>subject</th>
+                                    <th>disscription</th>
+                                    <th>Attende </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% for(var l=0;l<4;l++){%>
+                                    <% if(data[j].lname[l]!='' && data[j].lname[l]!=null){%>
+                                        <tr>
+                                            <td>
+                                                <%= data[j].lname[l] %>
+                                            </td>
+                                            <td>
+                                                <%= data[j].subjectname[l] %>
+                                            </td>
+                                            <td>
+                                                <%= data[j].discriptions[l] %>
+                                            </td>
+                                            <td>
+                                                <a class="uk-button uk-button-default"
+                                                    href=" <%= data[j].links[l] %>">Attende</a>
+                                            </td>
+
+                                        </tr>
+                                        <% } %>
+                                            <% } %>
+                            </tbody>
+
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% } %>
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+            </script>
+            <script>
+
+
+                var d = new Date();
+                var s = d.getSeconds();
+                var m = d.getMinutes();
+                var h = d.getHours();
+                if (h == 19 && h <= 20) {
+                    if (m >= 00 && m <= 50) {
+                        console.log("yes")
+                    } else {
+                        console.log("no")
+                    }
+                } else {
+                    console.log("no")
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </script>
+</body>
+
+</html>
