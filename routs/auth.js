@@ -70,6 +70,10 @@ router.post("/login", async (req, res) => {
 router.get("/create-table", (req, res) => {
   res.render("creattimetable");
 });
+//home rout.....
+router.get("/", (req, res) => {
+  res.render("home");
+});
 
 router.post("/TimeTable-api", async (req, res) => {
   let data = {
